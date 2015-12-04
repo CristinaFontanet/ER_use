@@ -98,7 +98,44 @@ attributes
   tipoComposicion : Composicion
 end
 
+class Hour
+attribute
+  hour : Integer
+  minute : Integer
+  seconds : Integer
+end 
 
+enum DiasSemana {lunes,martes,miercoles,jueves,viernes,sabado,domingo}
+
+enum CondicionesEspeciales {Hour,Periodo,Despertar,Comer,Deporte}
+
+class MedicamentoAdministradoAlPaciente
+attribute
+  identificador : Integer
+  fotografia : String
+  nombreMedico : String
+  diasAdministracion : DiasSemana
+  horaInicioAdministracion : Hour
+  horaFinAdministracion : Hour
+  cantidadAdministracion : Integer
+  avisoNumeroFallos : Integer
+  avisoCondicionesEspeciales : CondicionesEspeciales
+  introduccionManual : Boolean
+end
+
+class Periodo
+attribute
+  fechaInicio : Date
+  fechaFin : Date
+end
+
+class MedicamentoTratamientoFinalizado < MedicamentoAdministradoAlPaciente
+end
+
+class MedicamentoEnTratamiento < MedicamentoAdministradoAlPaciente
+attribute
+  cantidadRestante : Integer
+end
 
 -- associations
 
